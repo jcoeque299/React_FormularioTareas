@@ -47,6 +47,7 @@ const App = () => {
       if (todo.id == todoEdit.id) {
         todo.title = todoEdit.title,
         todo.description = todoEdit.description,
+        todo.priority = todoEdit.priority,
         todo.state = todoEdit.state
       }
       return todo
