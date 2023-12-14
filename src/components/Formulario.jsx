@@ -5,8 +5,22 @@ import Swal from "sweetalert2"
   useEffect(() => {
     if (todoEdit) {
       setTodo(todoEdit)
+      setButton({
+        className: "btn btn-warning",
+        text: "Editar"
+      })
+      return
     }
+    setButton({
+      className: "btn btn-primary",
+      text: "Añadir"
+    })
   }, [todoEdit])
+
+  const [button, setButton] = useState({
+    className: "btn btn-primary",
+    text: "Añadir"
+  })
 
   const [todo, setTodo] = useState({
     title:"todo 01",
@@ -102,9 +116,9 @@ import Swal from "sweetalert2"
 
             <button
                  type="submit" 
-                 className='btn btn-primary'
+                 className={button.className}
             >
-                Añadir
+                {button.text}
             </button>
         </form>
     </div>
