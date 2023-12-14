@@ -7,7 +7,10 @@ const TodoList = ({todos, deleteTodo, updateStateTodo, updateTodo}) => {
     <h1 className='text-center'>Lista de tareas</h1>
       <ul>
         {
-          todos.map(todo=> (
+          todos.sort((a,b) => {
+            return (b.priority - a.priority) - (b.state - a.state)*2
+          })
+          .map(todo=> (
             < Todo key={todo.id} todo = {todo} deleteTodo={deleteTodo} updateStateTodo={updateStateTodo} updateTodo={updateTodo} />
           ))
         }
